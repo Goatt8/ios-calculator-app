@@ -35,7 +35,6 @@ class CalculatorViewController: UIViewController {
     private func allClear() {
         self.numberOnField.text = "0"
         self.operatorOnField.text = ""
-        self.calculateComponents = ""
         inputManager.clearInputManager()
         resetAllStackView()
     }
