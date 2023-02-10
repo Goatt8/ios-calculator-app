@@ -176,7 +176,7 @@ Calculator
     }
 ```
 
-### 수정후
+#### 수정후
 ``` swift
 // CalculatorViewController.swift
 
