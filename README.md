@@ -1,190 +1,230 @@
-# Calculator - 계산기 :fire:
-## 프로젝트 개요
-* 계산기UI에서 데이터를 입력받아 연산처리하는 프로젝트
-* 프로젝트 인원: [Goat]()
-* 프로젝트 기간: 2023.01.24 - 23.02.03
+# 계산기2 ➕➖✖️➗
 
 ## 목차
+[1. 프로젝트 소개](#1-프로젝트-소개)<br>
+[2. 팀원](#2-팀원)<br>
+[3. 타임라인](#3-타임라인)<br>
+[4. 시각화된 프로젝트 구조](#4-시각화된-프로젝트-구조)<br>
+[5. 실행 화면](#5-실행-화면)<br>
+[6. 트러블 슈팅](#6-트러블-슈팅)<br>
+[7. 팀 회고](#7-팀-회고)<br>
+[8. 참고 링크](#8-참고-링크)<br>
+<br>
 
-- [폴더 구조](#폴더-구조)
-- [타임라인](#타임라인)
-- [시각화된 프로젝트 구조](#시각화된-프로젝트-구조)
-- [트러블 슈팅](#트러블-슈팅)
-- [키워드](#프로젝트를-통해-학습한-키워드)
-- [개선할 부분](#개선할-부분)
+## 1. 프로젝트 소개
+각자의 계산기1 프로젝트를 바탕으로 병합 및 리팩토링하기
 
+<br>
 
+## 2. 팀원
 
-## 폴더 구조
+| Harry | Goat|
+|:----:|:----:|
+| <img src="https://i.imgur.com/BYdaDjU.png" width="130" height="130"/> | <img src="https://i.imgur.com/yoWVC56.png" width="130" height="130"/>
+| [<img src="https://i.imgur.com/IOAJpzu.png" width="22"/> Github](https://github.com/HarryHyeon) | [<img src="https://i.imgur.com/IOAJpzu.png" width="22"/> Github](https://github.com/Goatt8)
+
+<br>
+
+## 3. 타임라인
+- 23.02.06(월) ~ 23.02.10(금)
+    - 계산기2 프로젝트 시작
+    - Harry, Goat 각각 코드 선별해서 코드 병합
+    - 병합된 코드를 바탕으로한 리팩토링 
+<br>
+
+## 4. 시각화된 프로젝트 구조
+### 폴더 구조
+``` swift
+Calculator
+    ├── Model
+    │   ├── Formula
+    │   ├── Operator
+    │   ├── ExpressionParser
+    │   ├── Enumeration
+    │   ├── CalculatorItem
+    │   └── Operator
+    │
+    ├── View
+    │   ├── RoundedButton
+    │   ├── HistoryViewGenerator
+    │   ├── LaunchScreen
+    │   └── Main
+    │
+    │
+    ├── Controller
+    │   ├── InputManager
+    │   ├── CalculatorViewController
+    │   ├── AppDelegate
+    │   └── SceneDelegate
+    │
+    └── Extension
+        ├── StringExtension
+        ├── OperatorExtension
+        └── DoubleExtension
 
 ```
-├── Controller
-|   └── ViewController
-├── CalculatorTests
-|   ├── CalculatorQueueTests
-|   ├── SplitTests
-|   └── Operator
-|   └── FormulaTests
-|   └── ExpressionParserTests
-├── Model
-|   ├── CalculateItem
-|   ├── Enumeration
-|   └── Operator
-|   └── CalculateQueueItem
-|   └── Formula
-|   └── ExpressionParser
-├── Extension
-|   └──StringExtension
-|   └──OperatorExtension
-|   └──DoubleExtension
-└── View
-    ├── Main
-    └── Assets
-    └── LaunchScreen
 
-```
+<br>
 
-----
+### 클래스 다이어그램
+[<img src="https://i.imgur.com/EL677Yn.png" width="100%" height="100%"/> 클래스다이어그램.png](https://i.imgur.com/EL677Yn.png)
+
+
+
+<br>
+<br>
+
+## 5. 실행 화면
+
+<details>
+<summary>사칙연산</summary>
+<img src="https://i.imgur.com/rn15EoH.gif">
+<img src="https://i.imgur.com/BCl4JGp.gif">
+<br><br>
+<img src="https://i.imgur.com/fhOlLio.gif">
+<img src="https://i.imgur.com/cN2O03N.gif">
+<br><br>
+<img src="https://i.imgur.com/7qgtEks.gif">
+</details>
+
+<br>
+
+<details>
+<summary>CE</summary>
+<img src="https://i.imgur.com/Pnhc0hV.gif">
+</details>
+
+<br>
+
+<details>
+<summary>AC</summary>
+<img src="https://i.imgur.com/oYMhcfw.gif">
+</details>
+
+<br>
+
+<details>
+<summary>⁺⁄₋</summary>
+<img src="https://i.imgur.com/BYFKkur.gif">
+</details>
+
+<br>
+
+<details>
+<summary>=</summary>
+"="을 누른 후에 결과값에 계산을 이어서 할 수 있도록 했습니다.
+<br>
+<img src="https://i.imgur.com/8zSFels.gif">
+</details>
+
+
+<br>
+
+## 6. 트러블 슈팅
+
+### Merge Conflict
+* 계산기2 STEP1 코드병합후 PR을 merge하는 과정에서 두번의 merge conflict가 있었습니다
+<img src="https://i.imgur.com/D2KdJIa.png">
+
+
+### 과정을 보자면
+    * 비어있는 브랜치 A생성, Goat, Harry 각자 브랜치 a, b 생성
+    * a에 Goat 병합할 코드 작성후 ( A로 PR merge )/ b에 Harry 병합할 코드 작성후 ( A로 PR merge )
+    * 위와같은 과정 반복을 통해 새롭게 생성된 A라는 브랜치는 Goat,Harry의 병합용 브랜치가 되었음
+이 상황에서 병합된 A브랜치를 Goat의 기존 **계산기1 STEP3 PR 보냈던 [Yagom - Goatt8]** 브랜치로 보내려 하자 충돌이 발생
+<img src="https://i.imgur.com/w3S2w5n.png">
+    * 사진에 보이듯 Resovle Conflicts를 눌러 Git 클라이언트로 이동 후
+    충돌 표식 `<<<<<<<`, `=======`, `>>>>>>>`을 제거하며 원하는 방향으로 최종병합까지 완료했음에도 conflict가 해결되지않았습니다.
+<img src="https://i.imgur.com/yrRhBKQ.png">
+* 파일 병합 후 확인해보니 **Asset파일이 제거되는 오류**가 계속되었습니다
+* -> 두번의 PR실패 후 결론은 **파일의 분류, 파일의 인덱스나 빌드 자체가 기존에 보냈던 Goat STEP3의 파일과 달라서** 일어나는 현상이라고 생각되었습니다
+### 해결
+* 결국 **Goat의 STEP3파일을 복제해 새로운 브랜치를 생성**하고 **Harry의 병합할 코드또한 복제된 Goat의 STEP3로 머지**시켜 STEP3의 파일과 동일시시킨 후에 각자 작업을 진행하니 무리없이 PR이 merge되었습니다.
+
     
-## 타임라인
-> 시간 순으로 프로젝트의 주요 진행 척도를 표시
-> - 23.01.23(월): --설연휴--
-> - 23.01.24(화): 제시된 UML구조파악 및 queue자료구조 공부
-> - 23.01.25(수): STEP1 시작, queue구현, PR요청
-> - 23.01.26(목): STEP1 PR리뷰사항 반영, merge
-> - 23.01.27(금): STEP2 시작
-
-> - 23.01.30(월): STEP2 진행
-> - 23.01.31(화): STEP2 PR요청 및 리뷰사항반형, merge
-> - 23.02.01(수): STEP3 진행
-> - 23.02.02(목): STEP3 진행
-> - 23.02.03(금): STEP3 진행
-
-<br/>
-
-## 시각화된 프로젝트 구조
-
-<img src="https://i.imgur.com/wmSlBt9.png" width="100%" height="80%"/>
 
 
+<br>
 
+### 버튼의 조건검사 기능 분리
 
-<br/>
+#### ViewController에서 계산식을 만들어주는 기능
+- 기존에는 버튼 입력에 따라 IBAction 메서드로 처리를 할때 필요한 조건 검사를 ViewController에서 했습니다.
+- 조건에 부합하다면 버튼의 기능을 정상적으로 동작시키고 계산식에 삽입하는 방식의 코드로 작성하였습니다.
+- ViewController에서 모든 조건을 검사하다보니 버튼 하나의 동작에도 많은 코드가 쓰이게 되어 나중에는 코드를 작성한 사람도 어떤 조건들이었는지 쉽게 읽히지 않는 문제가 있었습니다.
 
+#### InputManager 타입 정의
+- IBAction에서 버튼을 눌렀을때 조건을 검사하고 계산식에 삽입하는 과정을 새로운 타입으로 분리하여 ViewController에서의 코드를 간결하게 하였습니다.
+- InputManager에서는 현재 계산기에 표시되는 레이블의 연산자 text, 피연산자 text와 계산식을 프로퍼티로 가지게 하였습니다.
+- 버튼을 눌렀을때 InputManager 인스턴스를 통해 조건을 검사하고 계산식에 삽입할 수 있도록 코드를 수정했습니다.
 
-### 기능 설명
-<img src="https://i.imgur.com/4pdqGIm.png" width="200" height="420"/>
+<br>
 
-* 계산기의 숫자(Operand)와 연산자(Operator)버튼을 눌러 계산을 실행합니다
-* 연산값은 (숫자 + 연산자) 형식으로 상단 스택뷰에 스크롤뷰로 쌓이게 됩니다
-* = 버튼은 입력된 값들을 모두 연산처리하며, = 버튼을 누르기전에는 연산을 실행하지 않습니다
-    * AC 버튼은 모든 값들을 clear
-    * CE 버튼은 현재 입력하는 숫자 or 연산결과(숫자)만 삭제합니다
-    * +/- 버튼은 플러스,마이너스 부호만 변경합니다
+#### 수정전
+``` swift
+// CalculatorViewController.swift
 
-<br/>
-
-## 트러블 슈팅
-
-#### 1. DoubleStack
-* queue 구조에서 dequeue구현시 배열에서의 removeFirst()가 O(N)의 시간복잡도를 가지기 때문에 문제가 생긴다는 점을 발견했습니다
-* 시간복잡도를 해결하는방법으로 여러 방법이 있었는데, 저는 stack을 두개 운영하면서 옮겨사용하는 방법으로 채택했습니다
-
-```swift
-var enqueueStack: [T] = []
-var dequeueStack: [T] = []
-
-mutating func dequeueItem() -> T? {
-        if dequeueStack.isEmpty {
-            dequeueStack = enqueueStack.reversed()
-            enqueueStack.removeAll()
+@IBAction private func numberButtonTapped(_ sender: UIButton) {
+        guard let currentTitle = sender.currentTitle else { return }
+        guard isCalculated == false else { return }
+        
+        if currentNumbersLabelText == "0" {
+            currentNumbersLabelText = number
+        } else {
+            currentNumbersLabelText += number
         }
-            return dequeueStack.popLast()
     }
 ```
-#### 2. extensin String - split(with: Character) 매서드 구현에서의 문제
-* 제시된 UML을 해석해보면 split은 `Characte`타입인 `Operator`를 기준으로 `split()`하는 매서드이며, 
-`componentsByOperators(from target: String) -> [String]`안에 들어와 String배열을 내보내는 구조인거같은데, 이 부분을 구현하는데 에러가 많았습니다.
-    1. (문제) split은 기준을 두고 나눠진값을 배열로 반환한다 -> split한 결과를 빈배열에 담아서 append하려니 이중배열이 되는 문제가 생겼습니다.(
-        * (해결) `curruentNumber[] += $0.split(someChracter: number.rawValue)` += 로 빈배열에 결과를 담는식으로 해결했습니다
-        * (해결2) split을 담아내는 이중배열을 flatMap고차함수로 해결했습니다
-```swift
- var resultNumber: [String] = [target]
-        
-        Operator.allCases.forEach { oper in
-            resultNumber = resultNumber.map { $0.split(someChracter: oper.rawValue) }.flatMap {$0}
-        }
+
+#### 수정후
+``` swift
+// CalculatorViewController.swift
+
+@IBAction func numberButtonTapped(_ sender: UIButton) {
+        guard let currentTitle = sender.currentTitle else { return }
+
+        numberOnField.text = inputManager.handleNumbers(input: currentTitle)
+    }
+
 ```
+``` swift
+/// InputManager.swift
 
-<br/>
-
-#### 3. split()으로 피연산자만 뽑아내는데 성공했지만, 음수/양수 변경하는 부분에서 고민
-```swift
-"1 + 3 x (-11) + 34 * 5" // split 적용했을 때
--> ["1", "3", "11", "34", "5"]
-```
-* (문제) 위와같은 경우의 `String`을 받아와 `split()`했을때 음수에 대한 `Operator` 역시 `split()`에서 걸러지므로 사라지는 경우가 생길 수 있다고 생각했습니다.
-    * split()부분에서 시행착오가 많았어서 일단 넘어갔는데, 음수 양수 변환문제를 어떻게 해결할지 추후에 다시 생각해봐야할것 같습니다.
-        * (해결) -오퍼레이터를 처리할때 화면에는 실제 음수(-)와 다르지만 유사한 형태의 캐릭터 이모티콘을 채택함으로써 Operator.Enum에 걸리지않도록 설정해 해결했습니다.
-
-<br/>
-
-#### 4. getInputtedNumber()
-
- `getInputtedNumber()` 라는 매서드를 통해 연결된 숫자 스트링을 출력해주고
- `buttonTapped`가 일어날때마다 매서드를 호출해 `currentNumnberOnField.text` 현재 숫자 표시 레이블에 넣어주는 식을 구현했었습니다. 아래와 같은 식으로 매서드 구현시 강제추출이 아니면 에러가 나서 
-    * (해결)`전역변수를 사용하는 방법`으로 해결했습니다
-  ```swift
-currentNumberOnField.text! += getInputtedNumber(sender) //Error: need force Unrapping
- ```
- 
- <br/>
- 
- 
- #### 5. scroll To Bottom 설정
-
-```swift
-  func setUpScrollView(){
-            let bottomOffset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
-            if(bottomOffset.y > 0) {
-                self.scrollView.setContentOffset(bottomOffset, animated: true)
-            }
-        }
-```
- * (문제) 스크롤뷰안에 스택뷰 구현시, 스택뷰가 지속적으로 쌓이지않고 한계를 보이는 현상이 있었습니다
-* 이유를 알고보니 스크롤 아래쪽으로 스택뷰는 화면에 보이지 않을 뿐 계속 쌓이고있었고 ,
-    * (해결) `setContentOffset(bottomOffset)` 키워드를 통해 스크롤 시작포인트가 bottom으로 향할 수 있게 설정함으로써 데이터가 쌓여올라가는 구조를 보이게끔 해결했습니다.
-
-<br/>
-
-#### 6. addStackView 스택뷰 추가시 오퍼레이터 분기처리
-
-<img src="https://i.imgur.com/zqA5DmB.png" width="200" height="420"/>
-
-* (문제) 화면에는 위와같이 [ 숫자 + (연산자+숫자) + (연산자+숫자) ] = [결과] 의 식으로 스택뷰에 숫자가 먼저 들어가야합니다.
-* 스택뷰를 추가해주는 과정에서 스택뷰에 (연산자 + 숫자)가 아닌 숫자만 들어갈 수 있게 분기처리를 어떻게 할지 고민하다가. 전역변수 calcuateComponents 라는 전역변수를 하나 더 설정함으로써 해결할 수 있었습니다.
-```swift=
-var inputNumbers = "" 
-var calcuateComponents = ""
-
-if calcuateComponents == "" {
-            calcuateComponents += inputNumbers
-            addNewStackView(number: inputNumbers, oper: currentOper)
+func handleNumbers(input: String) -> String {
+        if currentNumber == "0" || isCalculated {
+            currentNumber = input
+            isCalculated = false
         } else {
-            calcuateComponents += currentOper + inputNumbers
-            addNewStackView(number: inputNumbers, oper: currentOper)
+            currentNumber += input
+        }
+        
+        return currentNumber
+    }
 ```
 
+<br>
+<br>
+
+## 7. 팀 회고
+<details>
+    <summary>팀 회고</summary>
+    
+### 우리팀이 잘한 점
+- 서로 궁금한 것이 있으면 이해될때까지 토론하기
+- 서로에게 질문사항이 있으면 상대방이 이해될때까지 답변해주기
+- 상대방의 코드에서 각자 좋다고 느끼는 코드를 잘 채택하여 병합한 것
+
+### 우리팀이 개선할 점
+- 테스트 코드 작성이 익숙하지 않아 어려움이 많았던것 같다. 코드 커버리지를 확인하며 테스트 케이스 작성하는 것을 조금 더 연습해보기 !
+
+</details>
+    
 <br/>
 
-### 프로젝트를 통해 학습한 키워드
-- `class`, `struct`
-- `forEach`, `flatMap`, `map`, `closure`
-- `doubleStack`
-- `split`, `split(whereSeparator: Bool)`, `split(maxSplits: Int)`,`components`
-- `scrollView`, `stackView`, `addArrangedSubView`, `SetContentOffset(bottomOffset)`
-
-### 개선할 부분
-
-* 아직 STEP3를 완료하지못해서, `에러처리, AC, CE, +/-, = 버튼에 대한 구현이 더 필요합니다. 이 부분은 추가해서 수정해놓을 예정입니다`
-
+## 8. 참고 링크
+- [Swift Language Guide - Generics](https://docs.swift.org/swift-book/LanguageGuide/Generics.html)
+- [Swift Language Guide - Protocol](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html)
+- [야곰 닷넷 - Unit Test, TDD](https://yagom.net/courses/unit-test-%ec%9e%91%ec%84%b1%ed%95%98%ea%b8%b0/)
+- [Apple Docs - UIStackView](https://developer.apple.com/documentation/uikit/uistackview)
+- [Apple Docs - UIScrollView](https://developer.apple.com/documentation/uikit/uiscrollview)
+<br>
