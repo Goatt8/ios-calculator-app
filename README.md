@@ -122,12 +122,12 @@ Calculator
 
 ## 6. 트러블 슈팅
 
-### Merge Conflict
+### 1.Merge Conflict
 * 계산기2 STEP1 코드병합후 PR을 merge하는 과정에서 두번의 merge conflict가 있었습니다
 <img src="https://i.imgur.com/D2KdJIa.png">
 
 
-### 과정을 보자면
+#### 과정을 보자면
     * 비어있는 브랜치 A생성, Goat, Harry 각자 브랜치 a, b 생성
     * a에 Goat 병합할 코드 작성후 ( A로 PR merge )/ b에 Harry 병합할 코드 작성후 ( A로 PR merge )
     * 위와같은 과정 반복을 통해 새롭게 생성된 A라는 브랜치는 Goat,Harry의 병합용 브랜치가 되었음
@@ -146,7 +146,7 @@ Calculator
 
 <br>
 
-### 버튼의 조건검사 기능 분리
+### 2.버튼의 조건검사 기능 분리
 
 #### ViewController에서 계산식을 만들어주는 기능
 - 기존에는 버튼 입력에 따라 IBAction 메서드로 처리를 할때 필요한 조건 검사를 ViewController에서 했습니다.
