@@ -46,7 +46,7 @@ enum ExpressionParser {
     static private func extractOperators(from target: String) -> [String] {
         
         return target
-            .split(whereSeparator: {$0.isNumber || $0 == "."})
+            .split(whereSeparator: {$0.isNumber || $0 == "." || $0 == "-"})
             .map{String($0)}
         
     }

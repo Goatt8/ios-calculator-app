@@ -9,8 +9,6 @@ import UIKit
 
 class CalculatorViewController: UIViewController {
     
-    private var calculateComponents: String = ""
-    private var inputNumbers: String = "0"
     private let inputManager: InputManager = InputManager()
     
     @IBOutlet weak var numberOnField: UILabel!
@@ -44,7 +42,7 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func clearEntryButtonTapped(_ sender: UIButton) {
         self.numberOnField.text = "0"
-        self.inputNumbers = "0"
+        self.inputManager.currentNumber = "0"
     }
     
     @IBAction func converToNegativeButtonTapped(_ sender: UIButton) {

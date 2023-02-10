@@ -44,10 +44,10 @@ final class InputManager {
             return currentNumber
         }
         
-        if currentNumber.first == "−" {
+        if currentNumber.first == "-" {
             currentNumber.removeFirst()
         } else {
-            currentNumber = "−" + currentNumber
+            currentNumber = "-" + currentNumber
         }
         
         return currentNumber
